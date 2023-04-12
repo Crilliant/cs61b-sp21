@@ -1,6 +1,7 @@
 package deque;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import edu.princeton.cs.algs4.StdRandom;
 
 
 /** Performs some basic linked list tests. */
@@ -142,5 +143,41 @@ public class ArrayDequeTest {
             assertEquals(i, (int)d1.get(i));
         }
         assertFalse(d1.equals(d2));
+    }
+
+    /**
+     * Randomly test and compare LinkedListDeque and ArrayDeque.
+     */
+    @Test
+    public void randomizedTest(){
+        LinkedListDeque<Integer> correct = new LinkedListDeque<>();
+        ArrayDeque<Integer> broken = new ArrayDeque<>();
+
+        int N = 5000;
+        for (int i = 0; i < N; i += 1) {
+            int operationNumber = StdRandom.uniform(0, 3);
+            if (operationNumber == 0) {
+                // addLast
+                int randVal = StdRandom.uniform(0, 100);
+                broken.addLast(randVal);
+                correct.addLast(randVal);
+                // System.out.println("addLast(" + randVal + ")");
+            } else if (operationNumber == 1) {
+                assertEquals(correct.size(), broken.size());
+            } else {
+                if (broken.size() > 0){
+                    assertEquals(correct.removeLast(), broken.removeLast());
+                }
+            }
+        }
+    }
+    @Test
+    public void outOfBoundTest(){
+        ArrayDeque<Integer> d = new ArrayDeque<>();
+        d.removeFirst();
+        d.removeLast();
+        d.addLast(2);
+        assertEquals(2, (int)d.removeLast());
+        d.removeFirst();
     }
 }

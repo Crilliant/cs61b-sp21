@@ -43,14 +43,9 @@ public class TestBuggyAList {
               correct.addLast(randVal);
               // System.out.println("addLast(" + randVal + ")");
           } else if (operationNumber == 1) {
-              // size
-//              int size = broken.size();
-//              System.out.println("size: " + size);
               assertEquals(correct.size(), broken.size());
           } else {
               if (broken.size() > 0){
-//                  int last = broken.removeLast();
-//                  System.out.println("removeLast(" + last + ")");
                   assertEquals(correct.removeLast(), broken.removeLast());
               }
 //              System.out.println("Fail to removeLast().");

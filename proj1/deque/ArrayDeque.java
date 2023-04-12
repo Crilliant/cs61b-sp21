@@ -14,7 +14,7 @@ public class ArrayDeque<T> {
     }
 
     public T get(int index){
-        if (index > size || index < 0){
+        if (index >= size || index < 0){
             return null;
         }
         // the transform index in items
@@ -23,7 +23,7 @@ public class ArrayDeque<T> {
     }
     public void addFirst(T x){
         if (size >= items.length){ // Need to resize the items Array.
-            resize((int)(size * 1.1));
+            resize((int)(items.length * 1.5));
         }
         start = (start - 1 + items.length) % items.length; // 确保是正数
         size++;
@@ -72,8 +72,11 @@ public class ArrayDeque<T> {
         if ( size < 1){
             return null;
         }
-        T old = items[(start + size - 1) % items.length];
-        items[(start + size - 1) % items.length] = null;
+        // Make sure the index is positive.
+        int lastIndex = (start + size + items.length - 1) % items.length;
+        T old = items[lastIndex];
+        items[lastIndex] = null;
+
         size--;
         return old;
     }
