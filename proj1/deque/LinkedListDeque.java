@@ -24,7 +24,7 @@ public class LinkedListDeque<T> implements Iterable<T> {
     }
 
     // Deque的迭代器
-    class DequeIterator<T> implements Iterator<T> {
+    class DequeIterator implements Iterator<T> {
         LinkedListDeque<T>.Node current;
         LinkedListDeque<T>.Node _sentinel; // 哨兵节点
 
@@ -151,7 +151,7 @@ public class LinkedListDeque<T> implements Iterable<T> {
     // The Deque objects we’ll make are iterable (i.e. Iterable<T>)
     // so we must provide this method to return an iterator.
     public Iterator<T> iterator(){
-        return new DequeIterator<>(this);
+        return new DequeIterator(this);
     }
 
     // Returns whether or not the parameter o is equal to the Deque.
