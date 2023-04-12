@@ -72,8 +72,8 @@ public class ArrayDeque<T> {
         if ( size < 1){
             return null;
         }
-        T old = items[(start + size) % items.length - 1];
-        items[(start + size) % items.length - 1] = null;
+        T old = items[(start + size - 1) % items.length];
+        items[(start + size - 1) % items.length] = null;
         size--;
         return old;
     }
