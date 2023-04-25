@@ -4,7 +4,7 @@ import java.util.Iterator;
 /** The class for Deque.
  *  @author Cao Yuxin
  */
-public class LinkedListDeque<T> implements Iterable<T> {
+public class LinkedListDeque<T> implements Iterable<T>, Deque<T> {
     private int size;
     Node sentinel;
     public class Node {
@@ -74,10 +74,10 @@ public class LinkedListDeque<T> implements Iterable<T> {
         size++;
     }
 
-    // Returns true if deque is empty, false otherwise.
-    public boolean isEmpty() {
-        return size == 0;
-    }
+//    // Returns true if deque is empty, false otherwise.
+//    public boolean isEmpty() {
+//        return size == 0;
+//    }
 
     // the number of items in the deque
     public int size(){

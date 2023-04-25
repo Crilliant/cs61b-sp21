@@ -3,7 +3,7 @@ package deque;
 /**
  * @author crilliant
  */
-public class ArrayDeque<T> {
+public class ArrayDeque<T> implements Deque<T>{
     private T[] items;
     private int size;
     private int start;
@@ -46,9 +46,9 @@ public class ArrayDeque<T> {
         items[last] = x;
     }
 
-    public boolean isEmpty() {
-        return size() == 0;
-    }
+//    public boolean isEmpty() {
+//        return size() == 0;
+//    }
 
     public int size(){
         return size;
