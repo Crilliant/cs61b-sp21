@@ -7,7 +7,7 @@ import java.util.Iterator;
 public class LinkedListDeque<T> implements Iterable<T>, Deque<T> {
     private int size;
     Node sentinel;
-    public class Node {
+    private class Node {
         public T item;
         public Node next; // 引用类型
         public Node prev;
@@ -24,7 +24,7 @@ public class LinkedListDeque<T> implements Iterable<T>, Deque<T> {
     }
 
     // Deque的迭代器
-    class DequeIterator implements Iterator<T> {
+    private class DequeIterator implements Iterator<T> {
         LinkedListDeque<T>.Node current;
         LinkedListDeque<T>.Node _sentinel; // 哨兵节点
 
@@ -58,6 +58,7 @@ public class LinkedListDeque<T> implements Iterable<T>, Deque<T> {
     }
     // Adds an item of type T to the front of the deque.
     // Item is never null.
+    @Override
     public void addFirst(T item) {
         Node first = new Node(item, sentinel, sentinel.next);
         sentinel.next.prev = first;

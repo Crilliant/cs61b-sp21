@@ -23,7 +23,7 @@ public class TTFAF {
             e.printStackTrace();
         }
 
-        // You can also do this:
+//        // You can also do this:
 //         GuitarPlayer player = new GuitarPlayer(
 //                 new java.io.File("/home/crilliant/Desktop/He's a Pirate.mid"));
 //         player.play();

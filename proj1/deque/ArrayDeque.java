@@ -3,17 +3,17 @@ package deque;
 /**
  * @author crilliant
  */
-public class ArrayDeque<T> implements Deque<T>{
+public class ArrayDeque<T> implements Deque<T> {
     private T[] items;
     private int size;
     private int start;
     public ArrayDeque(){
-        items = (T[])new Object[8];
+        items = (T[]) new Object[8];
         size = 0;
         start = 0;
     }
 
-    public T get(int index){
+    public T get(int index) {
         if (index >= size || index < 0){
             return null;
         }
@@ -54,7 +54,7 @@ public class ArrayDeque<T> implements Deque<T>{
         return size;
     }
     public void printDeque(){
-        for(int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             System.out.print(items[(start + i) % items.length] + " ");
         }
     }

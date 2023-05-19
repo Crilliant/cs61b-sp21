@@ -10,6 +10,7 @@ public class GuitarString {
      * other topics in lecture on Friday. */
     private static final int SR = 44100;      // Sampling Rate
     private static final double DECAY = .996; // energy decay factor
+//    private static final double DECAY = 1;
 
     /* Buffer for storing sound data. */
      private Deque<Double> buffer;
@@ -21,7 +22,6 @@ public class GuitarString {
         for (int i = 0; i < capacity; i++){
             buffer.addLast(0.0);
         }
-//        System.out.println("buffer capacity = " + capacity);
     }
 
 
@@ -31,7 +31,6 @@ public class GuitarString {
             buffer.removeFirst();
             buffer.addLast(Math.random() - 0.5);
         }
-//        buffer.printDeque();
     }
 
     /* Advance the simulation one time step by performing one iteration of
@@ -40,6 +39,7 @@ public class GuitarString {
     public void tic() {
         double first = buffer.removeFirst();
         double end = (first + buffer.get(0)) * DECAY / 2;
+//        buffer.addLast(end);
         buffer.addLast(end);
     }
 
